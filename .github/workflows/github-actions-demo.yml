@@ -13,5 +13,8 @@ jobs:
           fetch-depth: 2
       - name: Show committed files
         run: |
-          git diff-tree --no-commit-id --name-status HEAD^ -r
+          git diff --name-status HEAD^ HEAD
+      - name: Echo committed files
+        run: |
+          echo "$(git diff --name-status HEAD^ HEAD)"
       - run: echo "🍏 This job's status is ${{ job.status }}."
