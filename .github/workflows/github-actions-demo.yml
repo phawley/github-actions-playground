@@ -19,4 +19,5 @@ jobs:
             fileData=(${committedFile//\t/ });
             echo "file name: $fileData[1]"
             echo "commit type: $fileData[0]"
+          done
       - run: echo "🍏 This job's status is ${{ job.status }}."
