@@ -15,8 +15,7 @@ jobs:
         id: commitData
         run: |
           committedFiles="$(git diff --name-status HEAD^ HEAD)"
-          echo committedFiles
-          for committedFile in committedFiles; do
+          for committedFile in ${committedFiles}; do
             fileData=(${committedFiles//\\t/ });
             echo "file name: ${fileData[1]}"
             echo "commit type: ${fileData[0]}"
