@@ -11,10 +11,12 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
-      - name: Show committed files
+      - name: Get committed files
+        id: commitData
         run: |
-          git diff --name-status HEAD^ HEAD
-      - name: Echo committed files
-        run: |
-          echo "$(git diff --name-status HEAD^ HEAD)"
+          committedFiles = git diff --name-status HEAD^ HEAD
+          for committedFile in committedFiles; do
+            fileData=(${committedFile//\t/ });
+            echo "file name: $fileData[1]"
+            echo "commit type: $fileData[0]"
       - run: echo "🍏 This job's status is ${{ job.status }}."
