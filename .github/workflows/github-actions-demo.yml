@@ -14,9 +14,9 @@ jobs:
       - name: Get committed files
         id: commitData
         run: |
-          committedFiles=(${git diff --name-status HEAD^ HEAD})
+          echo "committedFiles=(${git diff --name-status HEAD^ HEAD})" >> $GITHUB_OUTPUT
           for committedFile in committedFiles; do
             fileData=(${committedFile//\t/ });
-            echo "file name: $fileData[1]"
-            echo "commit type: $fileData[0]"
+            echo "file name: $fileData[1]" >> $GITHUB_OUTPUT
+            echo "commit type: $fileData[0]" >> $GITHUB_OUTPUT
       - run: echo "🍏 This job's status is ${{ job.status }}."
