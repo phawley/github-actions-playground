@@ -1,7 +1,7 @@
 {
   "id": "chakra-button",
   "title": "Chakra UI Button",
-  "description": "Button component from Chakra UI library\nhttps://v2.chakra-ui.com/docs/components/button",
+  "description": "Button component from the Chakra UI library\nhttps://v2.chakra-ui.com/docs/components/button",
   "statuses": {},
   "templates": [
     {
