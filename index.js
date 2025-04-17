@@ -79,7 +79,13 @@ function convertJSON(knapsackJSON) {
 function main() {
   let foo = "This is test data";
 
-  foo = process.env.COMMITTED_FILES;
+  if (process.env.COMMITTED_FILES) {
+    let thing = {
+      type: typeof(process.env.COMMITTED_FILES),
+      content: process.env.COMMITTED_FILES
+    }
+    foo = JSON.stringify(thing);
+  }
 
   // foo = fs.readFileSync(process.env.GITHUB_ENV.committed_files);
   
