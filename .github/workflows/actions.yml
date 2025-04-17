@@ -22,7 +22,7 @@ jobs:
         id: get_return_value
         run: npm run patrick
         env:
-          COMMITTED_FILES: ${{ steps.get_commit_data.outputs.committed_files }}"
+          COMMITTED_FILES: ${{ steps.get_commit_data.outputs.committed_files }}
       - name: Output results
         run: |
           echo "The output value is ${{ steps.get_return_value.outputs.my_output }}"
