@@ -1,11 +1,11 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: PR Github Actions triggered by: ${{ github.actor }}
 on: [pull_request]
 jobs:
   convert_knapsack_json_to_amplience:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "Job triggered by ${{ github.event_name }z"
       - name: Checkout (fetch last two commits) of the PR
         uses: actions/checkout@v4
         with:
@@ -13,8 +13,7 @@ jobs:
           fetch-depth: 2
       - name: Get committed files
         id: commitData
-        run: |
-          committed_files="$(git diff --name-status HEAD^ HEAD)"
+        run: committed_files="$(git diff --name-status HEAD^ HEAD)"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -23,5 +22,6 @@ jobs:
         run: npm run patrick
         id: get_output
       - name: Get output value
-        run: echo "The output value is ${{ steps.get_output.outputs.my_output }}"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+        run: |
+          echo "The output value is ${{ steps.get_output.outputs.my_output }}"
+          echo "Job status: ${{ job.status }}."
