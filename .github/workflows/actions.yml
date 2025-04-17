@@ -13,14 +13,16 @@ jobs:
           fetch-depth: 2
       - name: Get committed files
         id: get_commit_data
-        run: echo "{committed_files}=$(git diff --name-status HEAD^ HEAD)" >> "$GITHUB_ENV"
+        run: committed_files="$(git diff --name-status HEAD^ HEAD)"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
       - name: Running script
-        run: npm run patrick
         id: get_return_value
+        run: npm run patrick
+        env:
+          COMMITTED_FILES: ${{ steps.get_commit_data.outputs.committed_files }}"
       - name: Output results
         run: |
           echo "The output value is ${{ steps.get_return_value.outputs.my_output }}"
