@@ -1,0 +1,87 @@
+{
+  "id": "chakra-button",
+  "title": "Chakra UI Button",
+  "description": "Button component from Chakra UI library\nhttps://v2.chakra-ui.com/docs/components/button",
+  "statuses": {},
+  "templates": [
+    {
+      "id": "react-chakra-button",
+      "title": "Button",
+      "path": "@columbia1938/react",
+      "alias": "Button",
+      "templateLanguageId": "react",
+      "spec": {
+        "slots": {},
+        "props": {
+          "type": "object",
+          "properties": {
+            "fontFamily": {
+              "title": "Font Family",
+              "type": "string",
+              "enum": ["default", "GerTT"],
+              "default": "default"
+            },
+            "colorScheme": {
+              "title": "Color",
+              "type": "string",
+              "enum": [
+                "blue",
+                "cyan",
+                "green",
+                "orange",
+                "pink",
+                "purple",
+                "red",
+                "yellow"
+              ],
+              "default": "blue"
+            },
+            "colorValue": {
+              "title": "Color Shade",
+              "type": "string",
+              "enum": [
+                "50",
+                "100",
+                "200",
+                "300",
+                "400",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "950"
+              ],
+              "description": "Requires a Color",
+              "default": "50"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema",
+          "description": "Button component from Chakra UI library",
+          "required": []
+        },
+        "propOrder": ["fontFamily", "colorScheme", "colorValue"],
+        "slotOrder": []
+      },
+      "blockIds": [],
+      "demoIds": ["auLVpOv8ZZ", "XJqVWxXkh"]
+    }
+  ],
+  "tabs": [
+    {
+      "id": "V0evPJ4YNv",
+      "type": "subPage"
+    },
+    {
+      "id": "react-chakra-button",
+      "type": "template"
+    }
+  ],
+  "subPages": [
+    {
+      "title": "Overview",
+      "id": "V0evPJ4YNv",
+      "blockIds": ["AutA3MNRH"]
+    }
+  ]
+}
