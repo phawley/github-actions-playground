@@ -25,5 +25,5 @@ jobs:
           COMMITTED_FILES: ${{ steps.get_commit_data.outputs.committed_files }}
       - name: Output results
         run: |
-          echo "The output value is ${{ steps.process_committed_files.outputs.result }}"
+          echo "The output value is ${{ steps.process_committed_files.outputs.results }}"
           echo "Job status: ${{ job.status }}."
