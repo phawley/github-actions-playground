@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 2
       - name: Get committed files
         id: get_commit_data
-        run: committed_files="$(git diff --name-status HEAD^ HEAD)"
+        run: echo "{committed_files}=$(git diff --name-status HEAD^ HEAD)" >> "$GITHUB_ENV"
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
