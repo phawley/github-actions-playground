@@ -11,6 +11,8 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
+      - name: Echo changed files
+        run: echo "$(git diff --name-status HEAD^ HEAD)"
       - name: Get committed files
         id: get_commit_data
         run: echo "committed_files='$(git diff --name-status HEAD^ HEAD)'" >> "$GITHUB_OUTPUT"
