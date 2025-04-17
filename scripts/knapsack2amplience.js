@@ -90,8 +90,8 @@ function main() {
   return foo;
 }
 
-const result = main();
-fs.writeFileSync(process.env.GITHUB_OUTPUT, `my_output=${result}\n`, { flag: 'a' });
+const results = main();
+fs.writeFileSync(process.env.GITHUB_OUTPUT, `results=${results}\n`, { flag: 'a' });
 
 // on: pull_request
 // jobs:
