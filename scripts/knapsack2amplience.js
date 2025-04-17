@@ -76,6 +76,14 @@ function convertJSON(knapsackJSON) {
   amplienceJSON["propertyOrder"] = knapsackJSON.templates[0].spec.propOrder;
 }
 
+function main() {
+  return "Hello from knapsack2amplience!";
+}
+
+if (require.main === module) {
+  main();
+}
+
 // on: pull_request
 // jobs:
 //   process-last-commit-changes:
