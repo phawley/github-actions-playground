@@ -14,10 +14,8 @@ jobs:
       - name: Get committed files
         id: commitData
         run: |
-          committedFiles="$(git diff --name-status HEAD^ HEAD)"
-          for committedFile in ${committedFiles}; do
-            fileData=(${committedFiles//\\t/ })
-            echo "file name: ${fileData[1]}"
-            echo "commit type: ${fileData[0]}"
-          done
+          committed_files="$(git diff --name-status HEAD^ HEAD)"
+          committed_files_json=$(jq -n --argjson array "$committed_files" '$array')
+          node_response="$(node ../scripts/knapsack2amplience.js committed_files_json)"
+          echo "Node response: ${node_response}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
