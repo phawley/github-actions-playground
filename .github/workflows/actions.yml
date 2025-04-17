@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: '20.x'
       - name: Running script
-        id: get_return_value
+        id: process_committed_files
         run: npm run convert-for-amplience
         env:
           COMMITTED_FILES: ${{ steps.get_commit_data.outputs.committed_files }}
       - name: Output results
         run: |
-          echo "The output value is ${{ steps.get_return_value.outputs.my_output }}"
+          echo "The output value is ${{ steps.process_committed_files.outputs.result }}"
           echo "Job status: ${{ job.status }}."
