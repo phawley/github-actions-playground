@@ -12,7 +12,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
       - name: Get committed files
-        id: commitData
+        id: get_commit_data
         run: committed_files="$(git diff --name-status HEAD^ HEAD)"
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -20,8 +20,8 @@ jobs:
           node-version: '20.x'
       - name: Running script
         run: npm run patrick
-        id: get_output
-      - name: Get output value
+        id: get_return_value
+      - name: Output results
         run: |
-          echo "The output value is ${{ steps.get_output.outputs.my_output }}"
+          echo "The output value is ${{ steps.get_return_value.outputs.my_output }}"
           echo "Job status: ${{ job.status }}."
