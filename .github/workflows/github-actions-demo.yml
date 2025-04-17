@@ -15,7 +15,7 @@ jobs:
         id: commitData
         run: |
           committed_files="$(git diff --name-status HEAD^ HEAD)"
-          committed_files_json=$(jq -n --argjson array "$committed_files" '$array')
+          committed_files_json=$(jq -n --argjson array "$committed_files")
           node_response="$(node ../scripts/knapsack2amplience.js committed_files_json)"
           echo "Node response: ${node_response}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
