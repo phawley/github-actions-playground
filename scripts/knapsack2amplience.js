@@ -77,12 +77,21 @@ function convertJSON(knapsackJSON) {
 }
 
 function main() {
-  return "Hello from knapsack2amplience!";
+  let foo = "This is test data";
+
+  if (process.env.COMMITTED_FILES) {
+    let thing = {
+      type: typeof(process.env.COMMITTED_FILES),
+      content: process.env.COMMITTED_FILES
+    }
+    foo = JSON.stringify(thing);
+  }
+
+  return foo;
 }
 
-if (require.main === module) {
-  main();
-}
+const result = main();
+fs.writeFileSync(process.env.GITHUB_OUTPUT, `my_output=${result}\n`, { flag: 'a' });
 
 // on: pull_request
 // jobs:
