@@ -79,7 +79,7 @@ function convertJSON(knapsackJSON) {
 function main() {
   let foo = "This is test data";
   
-  foo = fs.readFileSync(process.env.GITHUB_ENV.committed_files);
+  // foo = fs.readFileSync(process.env.GITHUB_ENV.committed_files);
   
   return foo;
 }
