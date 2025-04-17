@@ -80,9 +80,8 @@ function main() {
   return "Hello from knapsack2amplience!";
 }
 
-if (require.main === module) {
-  main();
-}
+const result = main();
+fs.writeFileSync(process.env.GITHUB_OUTPUT, `my_output=${result}\n`, { flag: 'a' });
 
 // on: pull_request
 // jobs:
