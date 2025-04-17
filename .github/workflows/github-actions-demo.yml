@@ -15,6 +15,6 @@ jobs:
         id: commitData
         run: |
           committed_files="$(git diff --name-status HEAD^ HEAD)"
-          node_response="$(node knapsack2amplience.js committed_files)"
+          node_response="$(node ./knapsack2amplience.js committed_files)"
           echo "Node response: ${node_response}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
