@@ -15,7 +15,10 @@ jobs:
         run: echo "$(git diff --name-status HEAD^ HEAD)"
       - name: Get committed files
         id: get_commit_data
-        run: echo "committed_files='$(git diff --name-status HEAD^ HEAD)'" >> "$GITHUB_OUTPUT"
+        run: echo "committed_files='$(gh pr view ${PR_NUMBER} --json files --jq '.files.[].path)'" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
