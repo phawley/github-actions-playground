@@ -15,7 +15,7 @@ jobs:
         run: echo "$(git diff --name-status HEAD^ HEAD)"
       - name: Get committed files
         id: get_commit_data
-        run: echo "committed_files='$(gh pr view ${PR_NUMBER} --json files)'" >> "$GITHUB_OUTPUT"
+        run: echo "committed_files='$(gh pr view ${PR_NUMBER} --json additions, assignees, author, autoMergeRequest, baseRefName, baseRefOid, body, changedFiles, closed, closedAt, comments, commits, createdAt, deletions, files, fullDatabaseId, headRefName, headRefOid, headRepository, headRepositoryOwner, id, isCrossRepository, isDraft, labels, latestReviews, maintainerCanModify, mergeCommit, mergeStateStatus, mergeable, mergedAt, mergedBy, milestone, number, potentialMergeCommit, projectCards, projectItems, reactionGroups, reviewDecision, reviewRequests, reviews, state, statusCheckRollup, title, updatedAt, url)'" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
