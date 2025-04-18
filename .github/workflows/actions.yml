@@ -12,10 +12,10 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
       - name: Echo changed files
-        run: echo "$(git diff --name-status HEAD^ HEAD)"
+        run: echo "$(git diff --name-status origin/main..HEAD)"
       - name: Get committed files
         id: get_commit_data
-        run: echo "committed_files='$(gh pr view ${PR_NUMBER} --json files)'" >> "$GITHUB_OUTPUT"
+        run: echo "committed_files='$(gh pr view ${PR_NUMBER} --json baseRefName,headRefName,body,files)'" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
